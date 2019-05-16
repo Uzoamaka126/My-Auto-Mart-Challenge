@@ -1,0 +1,152 @@
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.full-container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.span-sd, .span-10, .span-20, .span-30, .span-40, .span-50, .span-60, .span-70, .span-90, .span-100 {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.span-sd {
+    flex: 0 0 8.33%;
+    width: 8.33%;
+}
+.span-10 {
+    flex: 0 0 16.66%;
+    width: 16.66%;
+}
+.span-20 {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+.span-70 {
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+.span-30 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+}
+.span-100 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+.span-50 {
+    flex: 0 0 50%;    
+    max-width: 50%;
+}
+
+.span-60 {
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+}
+
+.span-40 {
+    flex: 0 0 41.666667%;    
+    width: 41.666667%;
+}
+
+.span-90 {
+    -ms-flex: 0 0 91.666667%;
+    flex: 0 0 91.666667%;
+    max-width: 91.666667%;
+}
+
+.center {
+    margin: auto;
+}
+
+.d-flex-row {
+    display: flex;
+}
+
+.d-flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.justify-content-center {
+    justify-content: center
+}
+
+.justify-content-bw {
+    justify-content: space-between
+}
+
+.justify-content-end {
+    justify-content: flex-end;
+}
+.align-content-center {
+    align-items: center;
+}
+
+.h-100 {
+    height: 100%;
+}
+.margin-60 {
+    margin-top: 60px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
+
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}
+
+.margin-bottom-60 {
+    margin-bottom: 60px;
+}
+
+.margin-bottom-30 {
+    margin-bottom: 30px;
+}
+
+.margin-right-auto {
+  margin-right: auto !important;
+}
