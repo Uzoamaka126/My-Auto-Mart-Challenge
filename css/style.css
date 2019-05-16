@@ -208,7 +208,7 @@ section {
 }
 .second-section {
     height: 400px;
-    background-image: url('../images/xc40.jpg');
+    background-image: url('images/xc40.jpg');
     display: flex;
     flex-direction: column;
     background-size: cover;
@@ -887,7 +887,7 @@ input[type="text"] {
 .second-about-section {
     border: 1px solid purple;
     height: 350px;
-    background-image: url('../images/neonbrand-197313-unsplash.jpg');
+    background-image: url('images/neonbrand-197313-unsplash.jpg');
     background-size: contain;
     
 }
