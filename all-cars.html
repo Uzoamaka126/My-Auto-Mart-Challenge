@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New And Used Cars</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/size.css">
+    <link rel="stylesheet" href="css/media-queries.css">
+    <link rel="stylesheet" href="css/header.css">
+    <script src="js/responsiveness.js"></script>
+    <!-- External Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">    <script src="js/responsiveness.js"></script>    
+</head>
+<body>
+    <nav class="dashboard-nav" id="every-header">
+        <a href="index.html" class="header-logo dashboard-link">AutoMart</a>
+        <a href="javascript:void(0);" class="icon" onclick="navResponsiveness();">
+                <i class="material-icons">menu</i>
+        </a>
+        <a href="login.html" class="dashboard-link">Logout</a>
+        <a href="all-cars.html" class="dashboard-link">New</a>
+        <a href="dashboard.html" class="dashboard-link">Dashboard</a>
+        </nav>
+    <div class="container margin-bottom-60">
+        <div class="row">
+            <form id="used-car-search-form" class="car-search-form">
+                <select name="lll" id="car-make" class="select-input" placeholder="price range">Car Make
+                    <option value="">Price Range</option>
+                    <option value="">N1,000,000 - N1,500,000</option>                            
+                </select>
+                <select name="" id="car-model" class="select-input">
+                    <option value="">Manufacturer</option>
+                    <option value="">Mercedez</option>
+                    <option value="">Kia</option>
+                    <option value="">Honda</option>                                                    
+                </select>
+                <select name="" id="car-year" class="select-input">
+                    <option value="">Car State</option> 
+                    <option value="">New</option>                            
+                    <option value="">Used</option>                                              
+                </select>  
+                <button type="submit" id="car-search-button" class="primary-btn btn">Search Cars</button>             
+            </form>
+        </div>
+    </div>
+<!-- New Cars Section -->
+    <section class="white-section"> 
+        <div class="container h-100 margin-bottom-60">
+            <div class="cars-row-ul center mt-20">
+                <div class="cards">
+                    <div class="card-image">
+                        <img src="https://res.cloudinary.com/uzoamakacloud/image/upload/c_scale,h_300,w_400/v1557491996/patrik-storm-1502603-unsplash.jpg" alt="Image Here"  class="second-info-img">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title medium-text dark-text mt-10">Mercedez c-100 Series</h4>
+                        <div class="other-info margin-bottom-10 mt-10">
+                            <a class="sub-text light-dark-text">N5,000,000</a>
+                            <p class="green-background white-text small-text">Used</p>
+                        </div>
+                        <hr>
+                        <div class="other-info mt-10 margin-bottom-20">
+                            <a href="single_car.html" class="btn primary-btn btn-auto">Buy Car</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="card-image">
+                        <img src="https://res.cloudinary.com/uzoamakacloud/image/upload/c_scale,h_300,w_400/v1557491996/patrik-storm-1502603-unsplash.jpg" alt="Image Here" class="second-info-img">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title medium-text dark-text mt-10">Toyota Corolla</h4>
+                        <div class="other-info margin-bottom-10 mt-10">
+                            <a class="sub-text light-dark-text">N1,000,000</a>
+                            <p class="green-background white-text small-text">Used</p>
+                        </div>
+                        <hr>
+                        <div class="other-info mt-10 margin-bottom-20">
+                            <a href="single_car.html" class="btn primary-btn btn-auto">Buy Car</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="card-image">
+                        <img src="https://res.cloudinary.com/uzoamakacloud/image/upload/c_scale,h_300,w_400/v1557491996/patrik-storm-1502603-unsplash.jpg" alt="Image Here" class="second-info-img">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title medium-text dark-text mt-10">Honda Pilot </h4>
+                        <div class="other-info margin-bottom-10 mt-10">
+                            <a class="sub-text light-dark-text">N10,000,000</a>
+                            <p class="orange-background white-text small-text">New</p>
+                        </div>
+                        <hr>
+                        <div class="other-info mt-10 margin-bottom-20">
+                            <a href="single_car.html" class="btn primary-btn btn-auto">Buy Car</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="card-image">
+                        <img src="https://res.cloudinary.com/uzoamakacloud/image/upload/c_scale,h_300,w_400/v1557491996/patrik-storm-1502603-unsplash.jpg" alt="Image Here" class="second-info-img">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title medium-text dark-text mt-10">Land Rover</h4>
+                        <div class="other-info margin-bottom-10 mt-10">
+                            <a class="sub-text light-dark-text">N8,000,000</a>
+                            <p class="orange-background white-text small-text">New</p>
+                        </div>
+                        <hr>
+                        <div class="other-info mt-10 margin-bottom-20">
+                            <a href="single_car.html" class="btn primary-btn btn-auto">Buy Car</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="card-image">
+                        <img src="https://res.cloudinary.com/uzoamakacloud/image/upload/c_scale,h_300,w_400/v1557491996/patrik-storm-1502603-unsplash.jpg" alt="Image Here"  class="second-info-img">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title medium-text dark-text mt-10">Mercedez c-100 Series</h4>
+                        <div class="other-info margin-bottom-10 mt-10">
+                            <a class="sub-text light-dark-text">N5,000,000</a>
+                            <p class="green-background white-text small-text">Used</p>
+                        </div>
+                        <hr>
+                        <div class="other-info mt-10 margin-bottom-20">
+                            <a href="single_car.html" class="btn primary-btn btn-auto">Buy Car</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="card-image">
+                        <img src="https://res.cloudinary.com/uzoamakacloud/image/upload/c_scale,h_300,w_400/v1557491996/patrik-storm-1502603-unsplash.jpg" alt="Image Here"  class="second-info-img">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title medium-text dark-text mt-10">Mercedez c-100 Series</h4>
+                        <div class="other-info margin-bottom-10 mt-10">
+                            <a class="sub-text light-dark-text">N5,000,000</a>
+                            <p class="orange-background white-text small-text">New</p>
+                        </div>
+                        <hr>
+                        <div class="other-info mt-10 margin-bottom-20">
+                            <a href="single_car.html" class="btn primary-btn btn-auto">Buy Car</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="card-image">
+                        <img src="images/alex-suprun-671922-unsplash.jpg" alt="Image Here"  class="second-info-img">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title medium-text dark-text mt-10">Mercedez c-100 Series</h4>
+                        <div class="other-info margin-bottom-10 mt-10">
+                            <a class="sub-text light-dark-text">N5,000,000</a>
+                            <p class="green-background white-text small-text">Used</p>
+                        </div>
+                        <hr>
+                        <div class="other-info mt-10 margin-bottom-20">
+                            <a href="single_car.html" class="btn primary-btn btn-auto">Buy Car</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="card-image">
+                        <img src="https://res.cloudinary.com/uzoamakacloud/image/upload/c_scale,h_300,w_400/v1557491996/patrik-storm-1502603-unsplash.jpg" alt="Image Here"  class="second-info-img">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title medium-text dark-text mt-10">Mercedez c-100 Series</h4>
+                        <div class="other-info margin-bottom-10 mt-10">
+                            <a class="sub-text light-dark-text">N5,000,000</a>
+                            <p class="green-background white-text small-text">Used</p>
+                        </div>
+                        <hr>
+                        <div class="other-info mt-10 margin-bottom-20">
+                            <a href="single_car.html" class="btn primary-btn btn-auto">Buy Car</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="pagination center d-flex-row margin-60 span-100">
+                    <a href="#">&laquo;</a>
+                    <a href="#">1</a>
+                    <a href="#" class="active">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">&raquo;</a>
+                </div>              
+            </div> 
+        </div>
+    </section>
+</body>
+</html>

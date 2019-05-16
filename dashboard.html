@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>AutoMart | User Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/size.css">
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/media-queries.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <script src="js/responsiveness.js"></script>
+    <!-- External Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">    <script src="js/responsiveness.js"></script>    
+</head>
+<body>
+    <nav class="dashboard-nav" id="every-header">
+        <a href="index.html" class="header-logo dashboard-link">AutoMart</a>
+        <a href="javascript:void(0);" class="icon" onclick="navResponsiveness();">
+                <i class="material-icons">menu</i>
+        </a>
+        <a href="login.html" class="dashboard-link">Logout</a>
+        <a href="all-cars.html" class="dashboard-link">New</a>
+        <a href="admin.html" class="dashboard-link">Admin</a>
+        <a href="dashboard.html" class="dashboard-link">Dashboard</a>
+    </nav>
+    <section>
+        <div class="dashboard-buttons">
+            <button class="tab-button" onclick="openTabs('about-1', this, '#8caebd')" id="default">Profile</button>
+            <button class="tab-button" onclick="openTabs('about-2', this, '#0494d6')">Listed Cars</button>
+            <button class="tab-button" onclick="openTabs('about-3', this, '#8caebd')">Pending Purchases</button>
+            <button class="tab-button" onclick="openTabs('about-4', this, '#0494d6')">Sell My Car</button>
+        </div>
+        <div class="container about-container">
+            <!-- User Profile -->
+            <div id="about-1" class="about-1 center-text dark-text margin-60">
+                <img src="images/thomas-hafeneth-244903-unsplash.jpg" alt="An Image of a user" width="100" height="100">
+                <h1 class="sub-text dark-text mt-30">Full Name: Uzoamaka Anyanwu</h1>
+                <p class="medium-text light-dark-text">Email Address: uzoamaka.anyanwu@com</p>
+                <p class="medium-text light-dark-text">Sex: Female</p>
+                <p class="medium-text light-dark-text">No of Purchases : 2 Cars</p>
+                <p class="medium-text light-dark-text mb-20">No of Reported Ads: None</p>
+            </div>
+            <!--- Second Section -->
+            <div id="about-2" class="about-1 center-text dark-text">
+                <table class="white-section">
+                    <caption>My Car Listings</caption>
+                    <thead>
+                        <tr>
+                        <th scope="col">Manufacturer</th>
+                        <th scope="col">Date Added</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Car State</th>
+                        <th scope="col">Availability</th>
+                        <th scope="col">Actions</th>                        
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row" data-label="Account">Toyota S-Series 3001</td>
+                            <td data-label="Due Date">03/01/2016</td>
+                            <td data-label="Amount" class="dark-text medium-text">N12,000,000</td>
+                            <td data-label="Period">Brand New</td>
+                            <td data-label="available"><select>
+                            <option value="Brooklyn">Available</option>
+                            <option value="Manhattan">Sold</option>
+                            </select></td>
+                            <td data-label="Actions">
+                                <a class="btn-auto">
+                                    <i class="material-icons blue-text edit-button" onclick="editPostModal();">edit</i>
+                                </a>
+                                <a class="btn-auto">
+                                        <i class="material-icons red-text">delete</i>
+                                    </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="row" data-label="Account">BMW Series 2000</td>
+                            <td data-label="Due Date">03/05/2019</td>
+                            <td data-label="Amount" class="dark-text medium-text">N1,000,000</td>
+                            <td data-label="Period">Used</td>
+                            <td data-label="available"><select>
+                            <option value="Brooklyn">Available</option>
+                            <option value="Manhattan">Sold</option>
+                            </select></td>
+                            <td data-label="Actions">
+                                <a class="btn-auto">
+                                    <i class="material-icons blue-text edit-button" onclick="editPostModal();">edit</i>
+                                </a>
+                                <a class="btn-auto">
+                                        <i class="material-icons red-text">delete</i>
+                                    </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="row" data-label="Account">Kia Cerano 2013</td>
+                            <td data-label="Due Date">27/04/2019</td>
+                            <td data-label="Amount" class="dark-text medium-text">N5,000,000</td>
+                            <td data-label="Period">Brand New</td>
+                            <td data-label="available"><select>
+                            <option value="Brooklyn">Available</option>
+                            <option value="Manhattan">Sold</option>
+                            </select></td>
+                            <td data-label="Actions">
+                                <a class="btn-auto">
+                                    <i class="material-icons blue-text edit-button" onclick="editPostModal();">edit</i>
+                                </a>
+                                <a class="btn-auto">
+                                        <i class="material-icons red-text">delete</i>
+                                    </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="row" data-label="Account">Honda Pilot 001</td>
+                            <td data-label="Due Date">03/01/2016</td>
+                            <td data-label="Amount"  class="dark-text medium-text">N2,600,000</td>
+                            <td data-label="Period">Used</td>
+                            <td data-label="available"><select>
+                            <option value="Brooklyn">Available</option>
+                            <option value="Manhattan">Sold</option>
+                            </select></td>
+                            <td data-label="Actions">
+                                <a class="btn-auto">
+                                    <i class="material-icons blue-text edit-button" onclick="editPostModal();">edit</i>
+                                </a>
+                                <a class="btn-auto">
+                                        <i class="material-icons red-text">delete</i>
+                                    </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Pending Purchases -->
+            <div id="about-3" class="about-1 center-text dark-text">
+                <table>
+                    <caption>Pending Purchases</caption>
+                    <thead>
+                        <tr>
+                        <th scope="col">Manufacturer</th>
+                        <th scope="col">Date Added</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Car State</th>
+                        <th scope="col">Availability</th>
+                        <th scope="col">Actions</th>                        
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row" data-label="Account">Toyota S-Series 3001</td>
+                            <td data-label="Due Date">03/01/2016</td>
+                            <td data-label="Amount">N12,000,000</td>
+                            <td data-label="Period">Brand New</td>
+                            <td data-label="available">
+                                <input type="text" value="pending" class="blue-text" disabled>    
+                            </td>
+                            <td data-label="Actions">
+                                <a class="btn-auto">
+                                    <i class="material-icons">edit</i>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="row" data-label="Account">Toyota S-Series 3001</td>
+                            <td data-label="Due Date">03/01/2016</td>
+                            <td data-label="Amount">N12,000,000</td>
+                            <td data-label="Period">Brand New</td>
+                            <td data-label="available">
+                                <input type="text" value="pending" class="blue-text" disabled>    
+                            </td>
+                            <td data-label="Actions">
+                                <a class="btn-auto">
+                                    <i class="material-icons blue-text">edit</i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="about-4" class="about-1 center-text dark-text margin-60">
+                <div class="row">
+                    <div class="center span-100">
+                        <p class="center-text light-dark-text small-text">Fill in the required fields in the form</p>
+                        <form class="sell-form center">
+                            <div class="form-group">
+                                <label class="light-dark-text small-text left-text" for="">Car Manufacturer:</label>
+                                <select name="" id="">
+                                    <option value="">Select Car Manufacturer</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="light-dark-text small-text left-text" for="">Car Model:</label>
+                                <input type="text">
+                            </div>
+                            <div class="form-group">
+                                <label class="light-dark-text small-text left-text" for="">Color</label>
+                                <select name="" id="">
+                                    <option value="">Silver</option>
+                                    <option value="">Red</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="light-dark-text small-text left-text" for="">Price</label>
+                                <input type="text">
+                            </div>
+                            <div class="form-group">
+                                <label class="light-dark-text small-text left-text" for="">Body Type:</label>
+                                <select name="" id="">
+                                    <option value="">Select Body Type</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="light-dark-text small-text left-text" for="">Your Price</label>
+                                <input type="text" name="" id="">
+                            </div>
+                            <div class="form-group">
+                                <label class="light-dark-text small-text left-text" for="">Other Description(600 words):</label>
+                                <textarea name="" id="textarea" class="textarea"></textarea> 
+                            </div>
+                            <div class="button-group">
+                                <button type="button" class="btn long-btn warning-btn other-btn close" onclick="adminModalClose();">Cancel</button>
+                                <button type="submit" class="btn long-btn primary-btn other-btn">Sign Up</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <div class="modal" id="myEditPostModal">
+            <div class="modal-content margin-bottom-60 admin-modal">
+                <div class="modal-header">
+                    <span class="close" onclick="adminModalClose();">&times;</span>                    
+                    <p class="center-text mt-10">Update Price</p>
+                </div>
+                <div class="modal-body mt-20">
+                    <input type="text" placeholder="Enter New Price" class="">
+                </div>
+                <div class="modal-footer margin-bottom-60">
+                    <div class="button-group">
+                        <button class="btn long-btn warning-btn other-btn close" onclick="adminModalClose();">Cancel</button>
+                        <button class="btn long-btn primary-btn other-btn">Update Price</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+   <script src="js/main.js"></script>
+   <script src="js/modal.js"></script>
+</body>
+</html>
