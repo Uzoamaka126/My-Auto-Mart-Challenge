@@ -1,0 +1,42 @@
+{
+  "name": "automart",
+  "version": "1.0.0",
+  "description": "AutoMart is an e-commerce service that offers the best car deals from all over Nigeria",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.4.3",
+    "@babel/register": "7.4.0",
+    "@babel/cli": "7.4.3",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "7.4.3",
+    "@babel-register": "^6.26.0",
+    "coveralls": "^3.0.3",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.2",
+    "mocha-lcov-reporter": "^1.3.0",
+    "nodemon": "^1.19.0"
+  },
+  "scripts": {
+    "start": "nodemon --exec babel-node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git-https://github.com/Uzoamaka126/My-Auto-Mart-Challenge.git"
+  },
+  "keywords":[
+    "automart",
+    "sell"
+  ],
+  "author": "Uzoamaka Anyanwu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Uzoamaka126/My-Auto-Mart-Challenge/issues"
+  },
+  "homepage": "https://github.com/Uzoamaka126/My-Auto-Mart-Challenge/#readme"
+}
