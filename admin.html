@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AutoMart | Admin</title>
+    <link rel="stylesheet" href="css/size.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/media-queries.css">
+    <link rel="stylesheet" href="css/header.css">
+    <!-- External Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">    <script src="../js/responsiveness.js"></script>
+</head>
+<body>
+    <nav class="dashboard-nav" id="dashboard">
+        <a href="../index.html" class="header-logo dashboard-link white-text">AutoMart</a>
+        <a href="javascript:void(0);" class="icon" onclick="dashboardNavResponsiveness();">
+                <i class="material-icons">menu</i>
+        </a>
+        <a href="login.html" class="nav-link dashboard-link">Logout</a>
+        <a href="dashboard.html" class="nav-link dashboard-link ">View</a>
+    </nav>
+
+    <!-- Record Content -->
+    <section class="white-section admin-section">
+        <div class="d-flex-col justify-content-center">
+            <div class="container">
+                <div class="row">
+                    <form id="used-car-search-form" class="car-search-form">
+                        <input class="select-input" type="search" name="" id="" placeholder="Enter Owner's Name Here" class="">
+                        <button type="submit" id="car-search-button" class="primary-btn btn">Search Cars</button>             
+                    </form>
+                </div>
+            </div>
+            <div class="container margin-60">
+                <h5 class="sub-text">All Cars</h5>
+                    <div class="cars-row-ul center">
+                        <div class="cards">
+                            <div class="card-image">
+                                <img src="images/alex-suprun-671922-unsplash.jpg" alt="Image Here"  class="second-info-img">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Car Title Here</h4>
+                                <p class="smallest-text">Car Owner's Name</p>
+                                <div class="other-info">
+                                    <a class="smallest-text light-dark-text">Car Year</a>
+                                    <a href="#" class="blue-text smallest-text modal-admin-button" onclick="adminModal();">
+                                        <i class="material-icons">delete</i>
+                                    </a>
+                                </div>
+                                <hr>
+                                <div class="other-info mt-10 mb-20">
+                                    <p class="smallest-text light-dark-text">Car Miles</p>
+                                    <p class="smallest-text light-dark-text">Car Price</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cards">
+                            <div class="card-image">
+                                <img src="images/alex-suprun-671922-unsplash.jpg" alt="Image Here" class="second-info-img">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Car Title Here</h4>
+                                <p class="smallest-text">Car Owner's Name</p>
+                                <div class="other-info">
+                                    <a class="smallest-text light-dark-text">Car Year</a>
+                                    <a href="#" class="blue-text smallest-text modal-admin-button" onclick="adminModal();">
+                                        <i class="material-icons">delete</i>
+                                    </a>
+                                </div>
+                                <hr>
+                                <div class="other-info mt-10 mb-20">
+                                    <p class="smallest-text light-dark-text">Car Miles</p>
+                                    <p class="smallest-text light-dark-text">Car Price</p>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="cards">
+                        <div class="card-image">
+                            <img src="images/patrik-storm-1502603-unsplash.jpg" alt="Image Here" class="second-info-img">
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Car Title Here</h4>
+                            <p class="smallest-text">Car Owner's Name</p>
+                            <div class="other-info">
+                                <a class="smallest-text light-dark-text">Car Year</a>
+                                <a href="#" class="blue-text smallest-text modal-admin-button" onclick="adminModal();">
+                                    <i class="material-icons">delete</i>
+                                </a>
+                            </div>
+                            <hr>
+                            <div class="other-info mt-10 mb-20">
+                                <p class="smallest-text light-dark-text">Car Miles</p>
+                                <p class="smallest-text light-dark-text">Car Price</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards">
+                        <div class="card-image">
+                            <img src="images/patrik-storm-1502603-unsplash.jpg" alt="Image Here" class="second-info-img">
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Car Title</h4>
+                            <p class="smallest-text">Car Owner's Name</p>
+                            <div class="other-info">
+                                <a class="smallest-text light-dark-text">Car Year</a>
+                                <a href="#" class="blue-text smallest-text modal-admin-button" onclick="adminModal();">
+                                    <i class="material-icons">delete</i>
+                                </a>
+                            </div>
+                            <hr>
+                            <div class="other-info mt-10 mb-20">
+                                <p class="smallest-text light-dark-text">Car Miles</p>
+                                <p class="smallest-text light-dark-text">Car Price</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <!-- Pagination -->
+        <div class="pagination center d-flex-row margin-60">
+            <a href="#">&laquo;</a>
+            <a href="#">1</a>
+            <a href="#" class="active">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">&raquo;</a>
+        </div>
+    </section>
+
+    <!-- Modals -->
+    <div class="modal" id="myModal">
+        <div class="modal-content admin-modal">
+            <div class="modal-header">
+                <span class="close" onclick="adminModalClose();">&times;</span>
+                <h2>&nbsp;</h2>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this record?</p>
+            </div>
+            <div class="modal-footer d-flex-row justify-content-bw">
+                <button class="btn warning-btn long-btn">Cancel</button>
+                <button class="btn primary-btn long-btn">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/modal.js"></script>
+</body>
+</html>

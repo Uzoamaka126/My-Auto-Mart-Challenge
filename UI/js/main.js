@@ -1,6 +1,6 @@
 // Function for the about us page tabs
 function openTabs(tabName, element, color) {
-    var i, tabcontent, tablinks;
+    let i, tabcontent, tablinks;
     tabcontent = document.querySelectorAll('.about-1');
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = 'none';
@@ -17,7 +17,7 @@ document.getElementById('default').click();
 
 // Function for opening the single car page details
 function openDetails(tabName, element, color) {
-    var i, tabcontent, tablinks;
+    let i, tabcontent, tablinks;
     tabcontent = document.querySelectorAll('.single-details');
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = 'none';
