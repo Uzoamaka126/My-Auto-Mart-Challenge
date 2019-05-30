@@ -60,10 +60,9 @@ describe('CAR ENDPOINTS', () => {
       .set('accept', 'application/json')
       .send(carDetails)
       .end((err, res) => {
-        expect(res.status).to.eql(201);
-        expect(res.body.message).to.eql('ar has been deleted successfully');
+        expect(res.status).to.eql(200);
+        expect(res.body.message).to.eql('Car has been deleted successfully');
         done();
       });
   });
-  // The price of the car has been retrieved successfully
 });
