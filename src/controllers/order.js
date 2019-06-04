@@ -24,52 +24,40 @@ const createOrder = (req, res) => {
 
 const getOrder = (req, res) => {
   const id = parseInt(req.params.id, 10);
-  orderData.find((order) => {
-    if (order.id === id) {
-      return res.status(200).send({
-        success: 'true',
-        message: 'The order has been successfully retrieved',
-        order,
-      });
-    }
+  const requestedOrder = orderData.find(order => order.id === id);
+  return res.status(200).send({
+    success: 'true',
+    message: 'The order has been successfully retrieved',
+    requestedOrder,
   });
 };
 
 const updateOrder = (req, res) => {
   const id = parseInt(req.params.id, 10);
-  let findOrder;
-  let orderIndex;
-  orderData.find((order, index) => {
-    if (order.id === id) {
-      findOrder = order;
-      orderIndex = index;
-      return res.status(200).send({
-        success: 'true',
-        message: 'The order has been successfully retrieved',
-        order,
-      });
-    }
-  });
-  if (!findOrder) {
+  const foundOrder = orderData.find(order => order.id === id);
+  if(!foundOrder){
     return res.status(404).send({
       success: 'false',
       message: 'This order does not exist',
     });
   }
 
+  foundOrder.old_offer = foundOrder.current_offer;
+  foundOrder.current_offer = req.body.price_offered;
+  
+  // const updatedOrder = {
+  //   id: findOrder.id,
+  //   car_id: findOrder.car_id,
+  //   status: findOrder.status,
+  //   old_price_offered: findOrder.price_offered,
+  //   new_price_offered: req.body.price_offered || findOrder.price_offered,
+  // };
+  // orderData.splice(orderIndex, 1, updatedOrder);
 
-  const updatedOrder = {
-    id: findOrder.id,
-    car_id: findOrder.car_id,
-    status: findOrder.status,
-    old_price_offered: findOrder.price_offered,
-    new_price_offered: req.body.price_offered || findOrder.price_offered,
-  };
-  orderData.splice(orderIndex, 1, updatedOrder);
   return res.status(201).send({
     success: 'true',
     message: 'The order has been updated successfully',
-    updatedOrder,
+    foundOrder,
   });
 };
 

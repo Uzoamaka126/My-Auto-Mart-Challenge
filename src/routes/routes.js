@@ -5,15 +5,19 @@ import Orders from '../controllers/order';
 
 const router = express.Router();
 
-router.post('/car', car.createCar);
-router.get('/car/:id', car.getCar);
-// router.post('/auth/signup', Users.createUsers);
-// router.get('/car', car.getAllCars);
-router.get('/car', car.carStatus);
-router.delete('/car/:id', car.deleteCar);
-// router.patch('/car/:id', car.updateStatus);
-router.post('/order', Orders.createOrder);
-router.get('/order/:id', Orders.getOrder);
-// router.patch('/order/:id', Orders.updateOrder);
+const {createCar, getCar, getAllCars, carStatus, deleteCar, updateStatus} = car;
+const {createOrder, getOrder, updateOrder} = Orders;
+const {createUsers } = Users;
+
+router.post('/car', createCar);
+// router.get('/car/:id', getCar);
+router.post('/auth/signup', createUsers);
+// router.get('/car', getAllCars);
+// router.get('/car', carStatus);
+router.delete('/car/:id', deleteCar);
+// router.patch('/car/:id', updateStatus);
+router.post('/order', createOrder);
+// router.get('/order/:id', getOrder);
+// router.patch('/order/:id', updateOrder);
 
 export default router;
