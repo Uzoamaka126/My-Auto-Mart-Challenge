@@ -1,0 +1,376 @@
+swagger: "2.0"
+info:
+  description: "Auto Mart is an e-commerce store that offers its customers the best deals on different cars from anywhere."
+  version: "1.0.0"
+  title: "Auto Mart API"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "uzoamakaanyanwu26@gmail.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "api"
+basePath: "/v1"
+tags:
+- name: "Users"
+  description: "API Endpoints for Auto Mart Users"
+  
+- name: "Cars"
+  description: "API Endpoints for all cars on Auto Mart"
+  
+- name: "Orders"
+  description: "API Endoints for all Car Orders"
+
+schemes:
+- "https"
+- "http"
+paths:
+
+  /car:
+    post:
+      tags:
+      - "Cars"
+      summary: "Create a new car"
+      description: ""
+      operationId: "addCar"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "New car ad needs to be added to the service"
+        required: true
+        schema:
+          $ref: "#/definitions/Cars"
+      responses:
+        201: 
+          description: "Creation of new car ad successful"
+        405:
+          description: "Invalid car input"
+      security:
+      - petstore_auth:
+        - "write:cars"
+        - "read:cars"
+    patch:
+      tags:
+      - "Cars"
+      summary: "Update an existing car status"
+      operationId: "updateCarAd"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Update Car"
+        required: true
+        schema:
+          $ref: "#/definitions/Cars"
+      responses:
+        201:
+          description: "Car Update successful"
+        404:
+          description: "Car not found"
+      security:
+      - petstore_auth:
+        - "write:cars"
+        - "read:cars"
+  /car/:id:
+    get:
+      tags:
+      - "Cars"
+      summary: "Find a specific Car by its id"
+      operationId: "findCarById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "car"
+        in: "body"
+        description: "Get all cars"
+        required: true
+        schema:
+          $ref: "#/definitions/Cars"
+      responses:
+        200:
+          description: "Car retrieval successful"
+        400:
+          description: "Invalid status value"
+      security:
+      - petstore_auth:
+        - "write:cars"
+        - "read:cars"
+ 
+  /cars:
+    get:
+      tags:
+      - "Cars"
+      summary: "Get all cars"
+      operationId: "getAllCars"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "car"
+        in: "body"
+        description: "Get all cars"
+        required: true
+        schema:
+          $ref: "#/definitions/Cars"
+      responses:
+        200:
+          description: "Car retrieval successful"
+        400:
+          description: "Invalid status value"
+      security:
+      - petstore_auth:
+        - "write:cars"
+        - "read:cars"
+ 
+    delete:
+      tags:
+      - "Cars"
+      summary: "Deletes a selected car"
+      description: "Deletes a selected car"
+      operationId: "deleteCar"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "car"
+        in: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/Cars"
+      responses:
+        200:
+          description: "Car deleted successfully"
+        404:
+          description: "Car not found"
+      security:
+      - petstore_auth:
+        - "write:cars"
+        - "read:cars"
+  
+  /order:
+    post:
+      tags:
+      - "Orders"
+      summary: "Create a Car sales Ad"
+      description: "New Offer"
+      operationId: "placeOffer"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Create a counter offer"
+        required: true
+        schema:
+          $ref: "#/definitions/Order"
+      responses:
+        201:
+          description: "Price offer Post successful"
+          schema:
+            $ref: "#/definitions/Order"
+        400:
+          description: "Price offer not successful"
+  /order/:id:
+    get:
+      tags:
+      - "Orders"
+      summary: "Get a specific order"
+      description: "A user can get only his/her account while an admin can get all accounts"
+      operationId: "getOrder"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "order"
+        in: "path"
+        description: "Get accounts"
+        required: true
+        type: "integer"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Order"
+        404:
+          description: "Order not found"
+    patch:
+      tags:
+      - "Orders"
+      description: "A user can update his/her purchase order"
+      summary: "Update a specific order"
+      operationId: "updateOrder"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "orderId"
+        in: "path"
+        required: true
+        type: "integer"
+      responses:
+        201:
+          description: "Order has been successfully updated"
+        404:
+          description: "Order not found"
+  
+  /auth/signup:
+    post:
+      tags:
+      - "Users"
+      summary: "Creates a new user on Auto Mart"
+      description: ""
+      operationId: "createNewUser"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "New User Details"
+        required: true
+        schema:
+          type: "array"
+          items:
+            $ref: "#/definitions/User"
+      responses:
+        201:
+          description: "User successfully created"
+
+  /auth/signin:
+    get:
+      tags:
+      - "Users"
+      summary: "Logs user into the system"
+      description: ""
+      operationId: "loginUser"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "email"
+        in: "query"
+        description: "user's email"
+        required: true
+        type: "string"
+      - name: "password"
+        in: "query"
+        description: "user's password"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "string"
+          headers:
+            X-Rate-Limit:
+              type: "integer"
+              format: "int32"
+              description: "calls per hour allowed by the user"
+            X-Expires-After:
+              type: "string"
+              format: "date-time"
+              description: "date in UTC when token expires"
+        400:
+          description: "Invalid username/password supplied"
+  
+securityDefinitions:
+  petstore_auth:
+    type: "oauth2"
+    authorizationUrl: "http://petstore.swagger.io/oauth/dialog"
+    flow: "implicit"
+    scopes:
+      write:cars: "modify cars in your account"
+      read:cars: "read your cars"
+  api_key:
+    type: "apiKey"
+    name: "api_key"
+    in: "header"
+definitions:
+  Order:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        example: "100"
+      buyer:
+        type: "integer"
+        example: "amaka Paul"
+      car_id:
+        type: "integer"
+        example: "009"
+      created_on:
+        type: "string"
+        format: "date-time"
+        example: "Sat June 1st 12: 20 : 34 2019 UTC"
+      status:
+        type: "string"
+        example: "available"
+      price:
+        type: "number"
+        example: "5000000"
+      price_offered: 
+        type: "number"
+        example: "4500000"
+    xml:
+      name: "Orders"
+  User:
+    type: "object"
+    properties:
+      first_name:
+        type: "string"
+        example: "amaka"
+      last_name:
+        type: "string"
+        example: "anyanwu"
+      email:
+        type: "string"
+        example: "amaka@gmail.com"
+      password:
+        type: "string"
+        example: "admin"
+      address:
+        type: "string"
+        example: "12 Gbagbo Street"
+      is_admin:
+        type: "boolean"
+        example: "true"
+    xml:
+      name: "Users"
+  Cars:
+    type: "object"
+    required:
+    - "name"
+    - "photoUrls"
+    properties:
+      id:
+        type: "integer"
+        example: "200"
+      owner:
+        type: "string"
+        example: "amakaanyanwu"
+      created_on:
+        type: "string"
+        format: "date-time"
+        example: "Sat June 1st 12: 20 : 34 2019 UTC"
+      state: 
+        type: "string"
+        example: "used"
+      status: 
+        type: "string"
+        example: "available"
+      price: 
+        type: "number"
+        example: "1000000"
+      manufacturer: 
+        type: "string"
+        example: "Ford"
+      model: 
+        type: "string"
+        example: "c-500"
+      body_type: 
+        type: "string"
+        example: "saloon"
+    xml:
+      name: "Cars"

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New And Used Cars</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/size.css">
+    <link rel="stylesheet" href="css/media-queries.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/slides.css">
+
+    <script src="js/responsiveness.js"></script>
+    <script src="js/slides.js"></script>
+    <!-- External Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">    <script src="../js/responsiveness.js"></script>    
+</head>
+<body>
+    <nav class="dashboard-nav" id="dashboard">
+        <a href="index.html" class="header-logo dashboard-link">AutoMart</a>
+        <a href="javascript:void(0);" class="icon" onclick="dashboardNavResponsiveness();">
+                <i class="material-icons">menu</i>
+        </a>
+        <a href="signup.html" class="nav-link dashboard-link btn secondary-btn nav-btn">Sign Up</a>
+        <a href="login.html" class="nav-link dashboard-link btn primary-btn nav-btn">Login</a>
+        <a href="all-cars.html" class="nav-link dashboard-link">New</a>
+        <a href="login.html" class="nav-link dashboard-link">Sell Your Car</a>
+        <a href="dashboard.html" class="nav-link dashboard-link">Dashboard</a>
+    </nav>
+    <main>
+        <section>
+            <div class="button-group car-button-group">
+                <button class="details-button" onclick="openDetails('details-1', this, '#8caebd')" id="defaultOpen">Details</button>
+                <button class="details-button" onclick="openDetails('details-2', this, '#0494d6')">Description</button>
+                <button class="details-button" onclick="openDetails('details-3', this, '#8caebd')">Specifications</button>
+                <button class="details-button" onclick="openDetails('details-4', this, '#0494d6')">Gallery</button>
+            </div>
+        </section>
+        <section >
+            <div class="container">
+                <div class="row details-row">
+                    <div class="car-slides-container">
+                        <div class="car-slides active" id="defaultOpenPicture">
+                          <div class="numbertext">1 / 4
+                            <p class="white-text orange-background">Used</p>
+                          </div>
+                          <img class="slides-img second-info-img" src="images/alex-suprun-671922-unsplash.jpg">
+                        </div>
+                      
+                        <div class="car-slides">
+                          <div class="numbertext">2 / 4
+                            <p class="white-text orange-background">Used</p>
+                          </div>
+                          <img class="slides-img second-info-img" src="images/jon-koop-1511860-unsplash.jpg">
+                        </div>
+
+                        <div class="car-slides">
+                          <div class="numbertext">3 / 4
+                                <p class="white-text orange-background">Used</p>
+                          </div>
+                          <img class="slides-img second-info-img" src="images/pawel-kozak-556563-unsplash.jpg">
+                        </div>
+                          
+                        <div class="car-slides">
+                          <div class="numbertext">4 / 4
+                              <p class="white-text orange-background">Used</p>
+                          </div>
+                          
+                          <img class="slides-img second-info-img" src="images/pawel-kozak-556563-unsplash.jpg">
+                        </div>
+                          
+                        <a class="prev" onclick="plusSlides(-1)">❮</a>
+                        <a class="next" onclick="plusSlides(1)">❯</a>
+                      
+                        <div class="caption-container">
+                          <p id="caption"></p>
+                        </div>
+                      
+                        <div class="car-slides-row">
+                          <div class="column">
+                            <img class="demo cursor small-text" src="images/alex-suprun-671922-unsplash.jpg" style="width:100%" onclick="currentSlide(1)" alt="Honda C-500">
+                          </div>
+                          <div class="column">
+                            <img class="demo cursor" src="images/jon-koop-1511860-unsplash.jpg" style="width:100%" onclick="currentSlide(2)" alt="Honda C-500">
+                          </div>
+                          <div class="column">
+                            <img class="demo cursor" src="images/pawel-kozak-556563-unsplash.jpg" style="width:100%" onclick="currentSlide(3)" alt="Honda C-500">
+                          </div>
+                          <div class="column">
+                            <img class="demo cursor" src="images/patrik-storm-1502603-unsplash.jpg" style="width:100%" onclick="currentSlide(4)" alt="Honda C-500">
+                          </div>
+                        </div>
+                    </div>
+                    <!-- For the tab details -->
+                    <div class="single-details-section span-50 h-auto">
+                        <div class="single-details" id="details-1">
+                            <!-- <h3 class="center-text sub-text light-dark-text">Details</h3> -->
+                            <p class="medium-text center-text dark-text ">In our rankings, the 2008 Civic is engaged in a sibling rivalry with the 2008 Honda Fit.  
+                                The Civic holds an edge in safety <br> while the Fit's versatile cabin makes it a better choice for some buyers.  
+                                has changed in the Civic for 2008. <br> Honda introduces a leather seating option and a high-performance model, the Civic Mugen Si</p>
+                        </div>
+                        <div class="single-details" id="details-2">
+                            <p class="medium-text left-text dark-text ">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>  
+                        </div>
+                        <div class="single-details" id="details-3">
+                            <p class="medium-text left-text dark-text ">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+                        </div>
+                        <div class="single-details" id="details-4">
+                            <p class="medium-text left-text dark-text ">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="span-50"></div>
+                    <div class="span-50">
+                        <div class="button-group button-group-medium center">
+                            <a href="#" id="modalButton" class="btn warning-btn long-btn" onclick="">Report As Fake</a >
+                            <a href="purchase_order.html" class="btn primary-btn long-btn">Buy Car Now</a >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+<!-- Report As Fake Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-content margin-bottom-20 admin-modal">
+        <div class="modal-header">
+            <span class="close" onclick="adminModalClose();">&times;</span>                    
+        </div>
+        <div class="modal-body">
+            <form class="modal-form">
+                <div class="form-group">
+                    <label class="sub-text light-dark-text" for="">Why do you think this post is fake?</label>
+                    <textarea class="modal-textarea" name="" id=""></textarea>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer margin-bottom-60">
+            <div class="button-group">
+                <button class="btn long-btn warning-btn other-btn close" onclick="adminModalClose();">Cancel</button>
+                <button class="btn long-btn primary-btn other-btn">Report Post</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="js/main.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/slides.js"></script>
+</body>
+</html>

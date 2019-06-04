@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AutoMart Landing Page</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/size.css">
+    <link rel="stylesheet" href="css/media-queries.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/form.css">
+
+        <!-- External Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">    <script src="../js/responsiveness.js"></script>    
+    <script src="js/responsiveness.js"></script>
+    </head>
+
+<body>
+    <nav class="topnav" id="every-header">
+        <a href="index.html" class="header-logo">AutoMart</a>
+        <a href="javascript:void(0);" class="icon" onclick="navResponsiveness();">
+            <i class="material-icons">menu</i>
+        </a>
+        <a href="" class="nav-link">
+            <i class="material-icons blue">user</i>
+        </a>
+        <a href="signup.html" class="nav-link">Sign Up</a>
+        <a href="login.html" class="nav-link btn">Login</a>
+        <a href="all-cars.html" class="nav-link">Car Listings</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+    </nav>
+    <main>
+        <section id="header-search-bar" class="header-search-bar">
+            <form id="header-search-bar-form" class="search-bar-form" role="search">
+                <div class="search-bar-container">
+                    <input id="car-homepage-search" name="search" class="header-search-bar-input" type="search" placeholder="Search by Make, Model, or Keyword" autocomplete="off" value="">
+                    <div class="header-search-bar-button-container">
+                        <button id="header-search-button" aria-label="Submit search by Make, Model, or Keyword" type="submit" class="header-footer-icon-button">
+                            <i class="material-icons">search</i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <section class="margin-bottom-60">
+            <div class="second-section">
+                <!-- <div class="second-section-overlay"> -->
+                    <div class="middle-text m-auto">
+                        <h3 class="white-text center-text large-text">Buy A New or Used Car Hers</h3>
+                        <p class="white-text center-text medium-text">We are the destination for cars in Nigeria. Find out what makes us different</p>
+                        <a class="btn primary-btn long-btn center" href="signup.html">Get Started</a>
+                    </div>
+                <!-- </div> -->
+            </div>
+        </section>
+        <section class="margin-bottom-60">
+            <div class="container">
+                <h1 class="blue-text large-text center-text margin-bottom-20">Choose Your Car Type</h1>
+                <div class="row">
+                    <ul class="car-row-ul car-type-ul">
+                        <li class="cars-row-li">
+                            <a href="" class="car-type-a">
+                                <img src="images/car.svg" alt="" class="cars-row-img">
+                                <p class="center-text light-dark-text small-text">Classic</p>
+                            </a>
+                        </li>
+                        <li class="cars-row-li">
+                            <a href="" class="car-type-a">
+                                <img src="images/van.svg" alt="" class="cars-row-img">
+                                <p class="center-text light-dark-text small-text">Saloon</p>
+                            </a>
+                        </li>
+                        <li class="cars-row-li">
+                            <a href="" class="car-type-a">
+                                <img src="images/station-wagon.svg" alt="" class="cars-row-img ">
+                                <p class="center-text light-dark-text small-text">Van</p>
+                            </a>
+                        </li>
+                        <li class="cars-row-li">
+                            <a href="" class="car-type-a">
+                                <img src="images/all-terrain-vehicle.svg" alt="" class="cars-row-img">
+                                <p class="center-text light-dark-text small-text">SUV</p>
+                            </a>
+                        </li>
+                        <li class="cars-row-li">
+                            <a href="" class="car-type-a">
+                                <img src="images/truck (1).svg" alt="" class="cars-row-img">
+                                <p class="center-text light-dark-text small-text">Truck</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="white-section"> 
+            <div class="container h-100 margin-bottom-60">
+                <h5 class="sub-text dark-text">Recently Added</h5>
+                <div class="cars-row-ul center mt-20">
+                    <div class="cards zoom">
+                        <div class="card-image">
+                            <img src="images/alex-suprun-671922-unsplash.jpg" alt="Image Here"  class="second-info-img">
+                        </div>
+                        <div class="card-body">
+                            <div class="other-info">
+                                <p class="card-title small-text light-dark-text mt-10">Mercedez c-100 Series</p>
+                                <p class="tiny-text green-text">Used</p>
+                            </div>
+                            <div class="other-info margin-bottom-10 mt-10">
+                                <a class="medium-text blue-text bold-text">N5,000,000</a>
+                                <p class="small-text light-dark-text">23K miles</p>
+                            </div>
+                            <p class="smallest-text">Key Features: Smooth, Navigation system, Alpine</p>
+                            <p class="smallest-text mt-5 green-text">(Negotiable)</p>
+                            <div class="other-info mt-10 margin-bottom-20">
+                                <button class="btn secondary-2-btn btn-auto">Buy Car</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards zoom">
+                        <div class="card-image">
+                            <img src="images/alex-suprun-671922-unsplash.jpg" alt="Image Here" class="second-info-img">
+                        </div>
+                        <div class="card-body">
+                            <div class="other-info">
+                                <p class="card-title small-text light-dark-text mt-10">Toyota Corolla</p>
+                                <p class="tiny-text red-text">Used</p>
+                            </div>
+                            <div class="other-info margin-bottom-10 mt-10">
+                                <a class="medium-text blue-text bold-text">N1,000,000</a>
+                                <p class="small-text light-dark-text">23K miles</p>
+                            </div>
+                            <p class="smallest-text">Key Features: Smooth, Navigation system, Alpine</p>
+                            <p class="smallest-text mt-5 red-text">(Non-negotiable)</p>
+                            <div class="other-info mt-10 margin-bottom-20">
+                                <button class="btn secondary-2-btn btn-auto">Buy Car</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards zoom">
+                        <div class="card-image">
+                            <img src="images/patrik-storm-1502603-unsplash.jpg" alt="Image Here" class="second-info-img">
+                        </div>
+                        <div class="card-body">
+                            <div class="other-info">
+                                <p class="card-title small-text light-dark-text mt-10">Honda Pilot </p>
+                                <p class="tiny-text green-text">New</p>
+                            </div>
+                            <div class="other-info margin-bottom-10 mt-10">
+                                <a class="medium-text blue-text bold-text">N10,000,000</a>
+                                <p class="small-text light-dark-text">23K miles</p>
+                            </div>
+                            <p class="smallest-text">Key Features: Smooth, Navigation system, Alpine</p>
+                            <p class="smallest-text mt-5 green-text">(Negotiable)</p>
+                            <div class="other-info mt-10 margin-bottom-20">
+                                <button class="btn secondary-2-btn btn-auto">Buy Car</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards zoom">
+                        <div class="card-image">
+                            <img src="images/patrik-storm-1502603-unsplash.jpg" alt="Image Here" class="second-info-img">
+                        </div>
+                        <div class="card-body">
+                            <div class="other-info">
+                                <p class="card-title small-text light-dark-text mt-10">Land Rover</p>
+                                <p class="tiny-text green-text">New</p>
+                            </div>
+                            <div class="other-info margin-bottom-10 mt-10">
+                                <a class="medium-text blue-text bold-text">N8,000,000</a>
+                                <p class="small-text light-dark-text">23K miles</p>
+                            </div>
+                            <p class="smallest-text">Key Features: Smooth, Navigation system, Alpine</p>
+                            <p class="smallest-text mt-5 red-text">(Non-negotiable)</p>
+                            <div class="other-info mt-10 margin-bottom-20">
+                                <button class="btn secondary-2-btn btn-auto">Buy Car</button>
+                            </div>
+                        </div>
+                    </div>  
+                </div> 
+            </div>
+        </section>
+        <section class="margin-20 light-background">
+            <div class="container">
+                <div class="row services-row">
+                    <h3 class="large-text mt-40 mb-20 center blue-text">Our Services</h3>
+                    <div class="span-9 center-info center services-row mb-20">
+                        <div class="info-divs">
+                            <div class="small-image-container">
+                                <img src="images/compass.svg" alt="picture here" class="second-info-img">
+                            </div>
+                            <p class="medium-text blue-text center-text">View Cars</p>
+                            <p class="smallest-text light-dark-text center-text">Find the best cars at cheaper deals from all over Nigeria</p>
+                        </div>
+                        <div class="info-divs">
+                            <div class="small-image-container">
+                                <img src="images/earth.svg" alt="picture here" class="second-info-img">
+                            </div>
+                            <p class="medium-text blue-text center-text">Buy Online</p>
+                            <p class="smallest-text light-dark-text center-text">Buy Cars online at 100% trust and refund rate</p>
+                        </div>
+                        <div class="info-divs">
+                            <div class="small-image-container">
+                                <img src="images/earth-globe.svg" alt="picture here" class="second-info-img">
+                            </div>
+                            <p class="medium-text blue-text center-text">Fast Car Shipping</p>
+                            <p class="smallest-text light-dark-text center-text">Have your ordered car shipped to you at lightning speed</p>
+                        </div>
+                    </div>   
+                </div>
+            </div>
+        </section>  
+    </main> 
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="footer-ul-container d-flex-row span-100 justify-content-bw">
+                    <ul class="footer-ul sub-text white-text">Automart</ul>
+                    <ul class="footer-ul small-text white-text center-text">About Us
+                        <li class="d-flex-col ">
+                            <a href="" class="smallest-text white-text footer-link">Our Team</a>
+                            <a href="" class="smallest-text white-text footer-link">Our Services</a>
+                            <a href="" class="smallest-text white-text footer-link">Contact Us</a>
+                        </li>
+                    </ul>
+                    <ul class="footer-ul small-text white-text d-flex-col center-text">Policies
+                        <li class="d-flex-col ">
+                            <a href="" class="smallest-text white-text footer-link">FAQs</a>
+                            <a href="" class="smallest-text white-text footer-link">International Policies</a>
+                            <a href="" class="smallest-text white-text footer-link">Shipping &amp; Returns</a>
+                        </li>
+                    </ul>
+                    <ul class="footer-ul small-text white-text d-flex-col center-text">Legal
+                        <li class="d-flex-col ">
+                            <a href="" class="smallest-text white-text footer-link">Legal Works</a>
+                            <a href="" class="smallest-text white-text footer-link">Legal Works</a>
+                            <a href="" class="smallest-text white-text footer-link">Legal Works</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
