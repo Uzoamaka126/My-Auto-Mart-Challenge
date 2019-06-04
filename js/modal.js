@@ -37,9 +37,7 @@ function adminModalClose() {
     let i;    
     for (i = 0; i < closeButton.length; i++) {
         closeButton[i].onclick = function() {
-            modal.style.display = "none";
-            modalEdit.style.display = 'none';
-            modalDelete.style.display = 'none';
+            modal.style.display = "none" || modalEdit.style.display = 'none' || modalDelete.style.display = 'none';
         }
     }
 }

@@ -1,0 +1,33 @@
+.search-bar-form {
+    width: 70%;
+    margin: auto;
+    height: auto;
+    margin-bottom: 13px;
+    margin-top: 15px;
+}
+.search-bar-container {
+    display: flex;
+    height: 45px;
+    border: 1px solid #c4c4c4;
+    background: #eee;
+    border-radius: 5px;
+    justify-content: space-between;
+}
+.header-search-bar-input {
+    width: 95%;
+    background: transparent;
+    border: none;
+    padding-left: 15px;
+}
+.header-search-bar-input:focus {
+    background: #fff;
+    border: 1px solid cornflowerblue;
+}
+.header-footer-icon-button {
+    border: none;
+    background: transparent;
+    padding-top: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+

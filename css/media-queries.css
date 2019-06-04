@@ -101,11 +101,13 @@
         
     }
     .form-picture {
-        width: 50%;
-        margin: auto;
+        display: none;
     }
     .form-inputs {
-        width: 100%
+        width: 100%;
+        margin-top: 60px;
+        padding: 10px 0;
+        border: 1px solid #eee;
     }
     .cars-row-ul {
         width: 100%;
@@ -138,6 +140,13 @@
     .cars-row-li {
         width: 100%;
         margin-bottom: 8px;
+    }
+    .pagination {
+        width: 100%;
+        margin: auto;
+    }
+    .form-picture {
+
     }
     .footer-ul-container {
         overflow: hidden;

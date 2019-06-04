@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New And Used Cars</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/size.css">
+    <link rel="stylesheet" href="css/media-queries.css">
+    <script src="../js/responsiveness.js"></script>
+    <!-- External Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">    <script src="../js/responsiveness.js"></script>    
+</head>
+<body>
+    <nav class="dashboard-nav" id="dashboard">
+        <a href="../index.html" class="header-logo dashboard-link">AutoMart</a>
+        <a href="javascript:void(0);" class="icon" onclick="dashboardNavResponsiveness();">
+            <i class="material-icons">menu</i>
+        </a>
+        <a href="logout.html" class="nav-link dashboard-link">Logout</a>        
+        <a href="all-cars.html" class="nav-link dashboard-link">New</a>
+        <a href="#" class="nav-link dashboard-link" id="modalButton">Sell Your Car</a>
+        <a href="dashboard.html" class="nav-link dashboard-link">Dashboard</a>
+    </nav>
+    <section class="white-section">
+        <div class="container mt-30">
+            <h5 class="sub-text">Recently Added</h5>
+            <div class="cars-row-ul center">
+                <div class="cards">
+                    <div class="card-image">
+                        <img src="images/alex-suprun-671922-unsplash.jpg" alt="Image Here"  class="second-info-img">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Car Title Here</h4>
+                        <p class="smallest-text light-dark-text">Car Year</p>
+                        <hr>
+                        <div class="other-info">
+                            <p class="smallest-text light-dark-text">Car Miles</p>
+                            <p class="smallest-text light-dark-text">Car Price</p>
+                        </div>
+                        <div class="other-info">
+                            <a href="#" class="blue-text smallest-text edit-button" onclick="editPostModal();">
+                                <i class="material-icons">edit</i>
+                            </a>                           
+                            <a href="#" class="blue-text smallest-text delete-post-button" onclick="deletePostModal();">
+                                <i class="material-icons">delete</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="card-image">
+                        <img src="images/alex-suprun-671922-unsplash.jpg" alt="Image Here" class="second-info-img">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Car Title Here</h4>
+                        <p class="smallest-text light-dark-text">Car Year</p>
+                        <hr>
+                        <div class="other-info">
+                            <p class="smallest-text light-dark-text">Car Miles</p>
+                            <p class="smallest-text light-dark-text">Car Price</p>
+                        </div>
+                        <div class="other-info">
+                            <a href="#" class="blue-text smallest-text edit-button" onclick="editPostModal();">
+                                <i class="material-icons">edit</i>
+                            </a>                            
+                            <a href="#" class="blue-text smallest-text delete-post-button" onclick="deletePostModal();">
+                                <i class="material-icons">delete</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="card-image">
+                        <img src="images/patrik-storm-1502603-unsplash.jpg" alt="Image Here" class="second-info-img">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Car Title Here</h4>
+                        <p class="smallest-text light-dark-text">Car Year</p>
+                        <hr>
+                        <div class="other-info">
+                            <p class="smallest-text light-dark-text">Car Miles</p>
+                            <p class="smallest-text light-dark-text">Car Price</p>
+                        </div>
+                        <div class="other-info">
+                            <a href="#" class="blue-text smallest-text edit-button" onclick="editPostModal();">
+                                <i class="material-icons">edit</i>
+                            </a>                            
+                            <a href="#" class="blue-text smallest-text delete-post-button" onclick="deletePostModal();">
+                                <i class="material-icons">delete</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="card-image">
+                        <img src="images/patrik-storm-1502603-unsplash.jpg" alt="Image Here" class="second-info-img">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Car Title</h4>
+                        <p class="smallest-text light-dark-text">Car Year</p>
+                        <hr>
+                        <div class="other-info">
+                            <p class="smallest-text light-dark-text">Car Miles</p>
+                            <p class="smallest-text light-dark-text">Car Price</p>
+                        </div>
+                        <div class="other-info">
+                            <a href="#" class="blue-text smallest-text edit-button" onclick="editPostModal();">
+                                <i class="material-icons">edit</i>
+                            </a>                            
+                            <a href="#" class="blue-text smallest-text delete-post-button" onclick="deletePostModal();">
+                                <i class="material-icons">delete</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            </div>
+    </section>
+   <!-- Sell Car Modal Content -->
+    <div class="modal center" id="myModal">
+        <div class="span-10"></div>
+        <div class="modal-content span-60 center">
+            <div class="modal-header">
+                <span class="close" onclick="adminModalClose();">&times;</span>
+                <h3 class="center-text dark-text sub-text">Sell Your Car Right Now</h3>
+                <p class="center-text blue-text small-text">Wait at least 2 days to get feedback</p>                        
+            </div>
+            <div class="modal-body">
+                <div class="center span-100">
+                    <p class="center-text light-dark-text small-text">Fill in the required fields in the form</p>
+                    <form class="sell-form center">
+                            <div class="form-group">
+                                <label class="light-dark-text small-text" for="">Car Manufacturer:</label>
+                                <select name="" id="">
+                                    <option value="">Select Car Manufacturer</option>
+                                </select>
+                                </div>
+                            <div class="form-group">
+                                <label class="light-dark-text small-text" for="">Car Model:</label>
+                                <input type="text">
+                            </div>
+                            <div class="form-group">
+                                <label class="light-dark-text small-text" for="">Transmission Type:</label>
+                                <input type="text">
+                                </div>
+                            <div class="form-group">
+                                <label class="light-dark-text small-text" for="">Mileage:</label>
+                                <input type="text">
+                            </div>
+                            <div class="form-group">
+                                <label class="light-dark-text small-text" for="">Price</label>
+                                <input type="text">
+                            </div>
+                            <div class="form-group">
+                                <label class="light-dark-text small-text" for="">Body Type:</label>
+                                <select name="" id="">
+                                    <option value="">Select Body Type</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="light-dark-text small-text" for="">Your Price</label>
+                                <input type="text" name="" id="">
+                            </div>
+                            <div class="form-group">
+                                <label class="light-dark-text small-text" for="">Other Description(600 words):</label>
+                                <textarea name="" id="textarea" class="textarea"></textarea> 
+                            </div>
+                            <div class="form-group">
+                                <label class="light-dark-text small-text" for="">Color</label>
+                                <select name="" id="">
+                                    <option value="">Silver</option>
+                                    <option value="">Red</option>
+                                </select>
+                            </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="button-group">
+                    <button type="button" class="btn long-btn warning-btn other-btn close" onclick="adminModalClose();">Cancel</button>
+                    <button type="submit" class="btn long-btn primary-btn other-btn">Sign Up</button>
+                </div>
+            </div>
+        </div>
+        <div class="span-20"></div>
+    </div>
+
+    <!-- Edit Sell Car Post Modal -->
+    <div class="modal" id="myEditPostModal">
+        <div class="modal-content margin-bottom-60 admin-modal">
+            <div class="modal-header">
+                <span class="close" onclick="adminModalClose();">&times;</span>                    
+                <p class="center-text mt-10">Update Price</p>
+            </div>
+            <div class="modal-body mt-20">
+                <input type="text" placeholder="Enter New Price" class="">
+            </div>
+            <div class="modal-footer margin-bottom-60">
+                <div class="button-group">
+                    <button class="btn long-btn warning-btn other-btn close" onclick="adminModalClose();">Cancel</button>
+                    <button class="btn long-btn primary-btn other-btn">Update Price</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Sell Post Modal -->
+    <div class="modal" id="myDeletePostModal">
+        <div class="modal-content margin-bottom-60 admin-modal">
+            <div class="modal-header">
+                <span class="close" onclick="adminModalClose();">&times;</span>                    
+                <p class="center-text mt-30">Are You Sure You Want To Delete This?</p>
+            </div>
+            <div class="modal-footer margin-bottom-60">
+                <div class="button-group">
+                    <button class="btn long-btn warning-btn other-btn close" onclick="adminModalClose();">Cancel</button>
+                    <button class="btn long-btn primary-btn other-btn">Delete Post</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/modal.js"></script>    
+</body>
+</html>

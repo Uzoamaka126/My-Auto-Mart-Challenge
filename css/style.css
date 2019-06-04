@@ -11,9 +11,11 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background: #fefefe;
     width: 100%;
-    /* overflow: hidden; */
 }
 
+main {
+    display: block;
+}
 body>#purchase-order-container {
     background: #fff;
 }
@@ -26,10 +28,16 @@ a {
     cursor: pointer;
 }
 
+.h-auto {
+    height: auto;
+}
 .blue-background {
     background: #0494d6;
 }
 
+.light-background {
+    background: #eee;
+}
 .green-background {
     background: yellowgreen;
     padding: 10px;
@@ -48,18 +56,17 @@ section {
 }
 
 .second-section {
-    height: 400px;
+    height: 450px;
     background-image: url('https://res.cloudinary.com/uzoamakacloud/image/upload/c_fill,h_400,w_1200/v1558016676/xc40.jpg');
     display: flex;
     flex-direction: column;
     background-size: cover;
 }
-.second-form-section {
-    border-bottom: 1px solid #eee;
-    padding-bottom: 15px;
-    background: #eee;
+.second-section-overlay {
+    /* background: linear-gradient(90deg,#0494d6 70%, #51a7db 82%, #51a7db 94%);    height: inherit; */
+    height: inherit;
+    background: radial-gradient(ellipse farthest-corner at center center, #0494d6 70%, #51a7db 82%, #51a7db 20%);
 }
-
 .pagination {
     border: 1px solid #eee;;
     width: 25%;
@@ -97,9 +104,7 @@ section {
     align-items: center;
     border-radius: 4px;
 }
-.form-picture {
-    width: 30%;
-}
+
 .select-input {
     border: 1px solid #aaa;
     box-shadow: unset;
@@ -152,10 +157,10 @@ section {
 }
 
 .primary-btn {
-    background: #0494d6;
     color: #fafafa;
     border: none;
     width: auto;
+    background: #0494d6;
 }
 
 .btn-50 {
@@ -172,6 +177,16 @@ section {
     color: #636363;
     border: 1px solid #0494d6;
 }
+.secondary-2-btn {
+    background: transparent;
+    color: #0494d6;
+    border: 1px solid #0494d6;
+}
+.secondary-2-btn:hover {
+    background: #0494d6;
+    color: #FFf;
+    border: none;
+}
 .primary-btn:hover, .secondary-btn:hover {
     background: #fafafa;
     border: 1px solid #0494d6;
@@ -184,7 +199,7 @@ section {
     line-height: 1.42857143;
     text-align: center;
     cursor: pointer;
-    padding: 14px 16px;
+    padding: 10px 14px;
     transition: background-color .3s ease-in;
     transition-property: background-color;
     transition-timing-function: ease-in;
@@ -246,7 +261,6 @@ section {
 }
 
 .sell-form {
-    /* border: 1px solid; */
     height: auto;
     width: 100%;
     display: flex;
@@ -262,6 +276,7 @@ section {
     display: flex;
     flex-direction: column;
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .info-text {
@@ -298,12 +313,18 @@ input[type="text"] {
     margin: 3rem auto 5px auto;
     display: flex;
     flex-direction: column;
-    padding-bottom: 10px;
-    /* border: 1px solid */
+    padding: 10px 0;
+    height: 200px;
+    justify-content: space-between;
+    align-items: center;
 }
 
+.large-text {
+    line-height: 1.25;
+    font-size: 2.10rem;
+}
 .sub-text {
-    font-size: 22px;
+    font-size: 24px;
 }
 
 .white-text {
@@ -327,7 +348,6 @@ input[type="text"] {
 }
 
 .small-text {
-    margin-bottom: 4px;
     font-size: 16px;
 }
 
@@ -342,9 +362,17 @@ input[type="text"] {
 .smallest-text {
     font-size: 14px;
 }
-
+.tiny-text {
+    font-size: 10px;
+}
+.green-text {
+    color: green;
+    padding-top: 5px;
+}
+.bold-text {
+    font-weight: bold;
+}
 .cars-row-ul {
-    /* border: 1px solid green; */
     display: flex;
     flex-basis: 90px;
     flex-grow: 1;
@@ -353,6 +381,19 @@ input[type="text"] {
     width: 100%;
     padding: 10px;
     height: auto;
+}
+
+.car-row-ul {
+    /* border: 1px solid green; */
+    display: flex;
+    flex-basis: 90px;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 90%;
+    padding: 10px;
+    height: auto;
+    margin: auto;
 }
 
 .cars-row-img {
@@ -371,14 +412,16 @@ input[type="text"] {
 }
 
 .cars-row-li {
-    width: 180px;
-    height: 180px;
+    width: 130px;
+    height: 130px;
     border: 1px solid #c4c4c4;
     background: #fff;
+    border-radius: 5px;
 }
 
 .cars-row-li:hover {
-        box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2);
+    transform: scale(1.3);
 }
 
 .nav {
@@ -427,10 +470,12 @@ input[type="text"] {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    /* border: 1px solid; */
 }
 
 .card-body {
     padding: 2px 16px;
+    height: auto;
 }
 
 #login-background {
@@ -452,7 +497,6 @@ input[type="text"] {
 	position: relative;
 	top: 130px;
 	max-width: 100%;
-    /* border: 1px solid; */
 }
 .login-form {
 	border: 1px solid #c4c4c4;
@@ -467,7 +511,7 @@ input[type="text"] {
 }
 .form-control {
 	width: 90%;
-	height: 30px;
+	height: 35px;
     border: 1px solid #c4c4c4;
     margin-bottom: 20px;
     border-radius: 4px;
@@ -493,6 +537,10 @@ input[type="text"] {
 	margin: 20px 0;
 }
 
+.login-button-container {
+    padding-left: 12px;
+    padding-right: 15fpx;
+}
 .white-section {
     background: #fff;
 }
@@ -524,6 +572,7 @@ input[type="text"] {
     width: 100%;
     height: 100%;
 }
+/* For the single car page */
 .small-image-container {
     width: 60px;
     height: 60px;
@@ -534,11 +583,9 @@ input[type="text"] {
     width: 260px;
     height: 260px;
     margin: 40px 0 5px 0;
-    /* border: 1px solid; */
     height: auto;
 }
 .details-row {
-    border: 1px solid;
     justify-content: space-between;
     align-items: center;
     width: 100%;
@@ -548,7 +595,7 @@ input[type="text"] {
     height: 250px;
     width: 550px;
 }
-#about-1,  {
+#about-1  {
     border: 1px solid rgb(209, 209, 209);
     height: 550px;
     display: none;
@@ -561,7 +608,6 @@ input[type="text"] {
 
 .about-container {
     height: 100%;
-    /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
 }
@@ -572,10 +618,14 @@ input[type="text"] {
     padding: 20px;
     background: #f2f1f1;
     width: auto;
+    margin-top: 0px;
 }
 
+#caption{
+    font-size: 14px;
+}
 .tab-button, .details-button {
-    background: #090909;
+    background: #8caebd;
     color: #fff;
     float: left;
     border: none;
@@ -584,6 +634,7 @@ input[type="text"] {
     font-size: 16px;
     width: 25%;
     height: 50px;
+    border: 1px solid
 }
 .tab-button:hover, .details-button:hover {
     background: #777;
@@ -592,7 +643,6 @@ input[type="text"] {
 #about-2, #about-4, #about-1, #a #about-3 {
     background: #fff;
     height: 100%;
-    /* color: #333; */
 }
 
 .purchase-order-form {
@@ -601,6 +651,7 @@ input[type="text"] {
     padding: 10px 20px;
     border-radius: 4px;
 }
+/* End of the single car page */
 
 footer {
     background: #0494d6;
@@ -615,3 +666,7 @@ footer {
 .footer-link {
     margin: 5px;
 }
+
+.zoom:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
