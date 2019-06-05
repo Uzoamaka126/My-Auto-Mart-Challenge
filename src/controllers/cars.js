@@ -26,33 +26,50 @@ const createCar = (req, res) => {
 };
 
 const getCar = (req, res) => {
-  console.log("yes");
-  // const id = parseInt(req.params.id, 10);
-  // data.map((car) => {
-  //   if (car.id === id) {
-  //     return res.status(200).send({
-  //       success: 'true',
-  //       message: 'Car data retrieval successful',
-  //       car,
-  //     });
-  //   }
-  // });
-};
-
-const carStatus = (req, res) => {
-  const { status } = req.query;
-  const filtered = data.filter(car => car.status === status);
-  if (filtered.length > 0) {
+  const id = parseInt(req.params.id, 10);
+  const requestedCar = data.find(car => car.id === id);
+  if (!requestedCar) {
     return res.status(200).send({
-      success: 'true',
-      message: "Status of the car has been retrieved successfully",
-      filtered,
+      success: false,
+      message: 'Car not found',
     });
   }
-  return res.status(400).send({
-    success: 'false',
+  return res.status(200).send({
+    success: 'true',
+    message: 'Car data retrieval successful',
+    requestedCar,
   });
 };
+
+const getAllCars = (req, res) => {
+  if (data.length === 0) {
+    return res.status(200).json({
+      status: 'success',
+      message: 'No cars available',
+    });
+  }
+  return res.status(200).json({
+    status: 'success',
+    message: 'Cars successfully retreived',
+    data,
+  });
+};
+
+// const carStatus = (req, res) => {
+//   const { status } = req.query;
+//   const filtered = data.filter(car => car.status === 'blue');
+//   if ()
+//   if (filtered.length > 0) {
+//     return res.status(200).send({
+//       success: 'true',
+//       message: "Status of the car has been retrieved successfully",
+//       filtered,
+//     });
+//   }
+//   return res.status(400).send({
+//     success: 'false',
+//   });
+// };
 
 // const priceRange = (req, res) => {
 //   const { status, min_price, max_price } = req.query;
@@ -83,56 +100,43 @@ const deleteCar = (req, res) => {
         data,
       });
     }
-  });
-  return res.status(404).send({
-    success: 'false',
-    message: 'Car does not exist',
+    return res.status(404).send({
+      success: 'false',
+      message: 'Car does not exist',
+    });
   });
 };
 
-// const getAllCars = (req, res) => {
-//   const id = parseInt(req.params.id, 10);
-//   let findCar;
-//   let carIndex;
-//   data.map((car, index) => {
-//     if (car.id === id) {
-//       findCar = car;
-//       carIndex = index;
-//     }
-//   });
-//   if (!findCar) {
-//     return res.status(404).send({
-//       success: 'false',
-//       message: 'Car does not exist',
-//     });
-//   }
-//   const updateCarStatus = {
-//     id: findCar.id,
-//     created_on: findCar.created_on,
-//     state: findCar.state,
-//     status: req.body.status || findCar.status,
-//     price: req.body.price || findCar.price,
-//     manufacturer: findCar.manufacturer,
-//     model: findCar.model,
-//     body_type: findCar.body_type,
-//   };
-
-//   data.splice(carIndex, 1, updateCarStatus);
-//   return res.status(201).send({
-//     success: 'true',
-//     message: 'Car has been updated successfully',
-//     updateCarStatus,
-//   });
-// };
+const updateCarStatus = (req, res) => {
+  const { id } = req.params;
+  // const very = parseInt(req.params.id, 10);
+  const findCar = data.find(car => car.id === parseInt(id, 10));
+  if (!findCar) {
+    return res.status(404).json({
+      status: 'failure',
+      message: 'car not found',
+    });
+  }
+  if (findCar.status === 'sold') {
+    return res.status(400).json({
+      status: 'failure',
+      message: 'car has already been sold',
+    });
+  }
+  findCar.status = 'sold';
+  return res.status(404).json({
+    status: 'failure',
+    message: 'car status successfully changed',
+  });
+};
 
 const CarController = {
   createCar,
   getCar,
-  carStatus,
+  // carStatus,
   deleteCar,
-  // getAllCars,
-  // updateCarStatus,
-  // priceRange,
+  getAllCars,
+  updateCarStatus,
 };
 
 export default CarController;
