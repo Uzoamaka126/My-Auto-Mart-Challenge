@@ -8,7 +8,9 @@ const orderModel = [
     "created_on": "21-30-2019",
     "status": "pending",
     "price": 4500000,
-    "price_offered": 3500000,
+    // "price_offered": 3000000,
+    "old_offer": 35000000,
+    "current_offer": 35000000,
   },
   {
     "id": 2,

@@ -50,15 +50,13 @@ describe('Create an order', () => {
         if (err) return done(err);
         expect(res.status).to.equal(200);
         expect(res.body.message).to.eql('The order has been successfully retrieved');
-        this.setTimeout(500);
-        setTimeout(done, 300);
-      });
+        done();
+      })
   });
 
   it('/api/v1/order/:id should respond with status code 201 and update the order', (done) => {
-    const id = 201;
     chai.request(app)
-      .patch(`/api/v1/order/${id}`)
+      .patch(`/api/v1/order/1`)
       .set('Accept', 'application/json')
       .send(updatedOrder)
       .end((err, res) => {

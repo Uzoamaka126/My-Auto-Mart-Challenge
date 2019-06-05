@@ -26,16 +26,17 @@ const createCar = (req, res) => {
 };
 
 const getCar = (req, res) => {
-  const id = parseInt(req.params.id, 10);
-  data.map((car) => {
-    if (car.id === id) {
-      return res.status(200).send({
-        success: 'true',
-        message: 'Car data retrieval successful',
-        car,
-      });
-    }
-  });
+  console.log("yes");
+  // const id = parseInt(req.params.id, 10);
+  // data.map((car) => {
+  //   if (car.id === id) {
+  //     return res.status(200).send({
+  //       success: 'true',
+  //       message: 'Car data retrieval successful',
+  //       car,
+  //     });
+  //   }
+  // });
 };
 
 const carStatus = (req, res) => {
