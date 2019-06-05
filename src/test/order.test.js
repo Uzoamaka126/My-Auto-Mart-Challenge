@@ -62,7 +62,7 @@ describe('Create an order', () => {
       .end((err, res) => {
         if (err) return done(err);
         expect(res.status).to.equal(201);
-        expect(res.body.message).to.eql('Order Updated successfully');
+        expect(res.body.message).to.eql('The order has been updated successfully');
         done();
       });
   });

@@ -48,7 +48,7 @@ describe('CAR ENDPOINTS', () => {
       .end((err, res) => {
         if (err) return done(err);
         expect(res.status).to.eql(200);
-        expect(res.body.message).to.eql('Status of the car has been retrieved successfully');
+        expect(res.body.message).to.eql('Cars successfully retreived');
         done();
       });
   });
