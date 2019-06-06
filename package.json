@@ -34,7 +34,7 @@
     "start": "node dist/server.js",
     "clean": "rm -rf dist && mkdir dist",
     "build": "npm run clean && npm run build-babel",
-    "build-babel": "babel server --out-dir dist --copy-files",
+    "build-babel": "babel src/server.js --out-dir dist --copy-files",
     "watch": "nodemon --exec babel-node --presets @babel/preset-env ./src/server.js",
     "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "test": "nyc mocha --exit ./src/test/*.js --require @babel/register"
