@@ -21,6 +21,7 @@ const createCar = (req, res) => {
   data.push(newCar);
   return res.status(201).json({
     status: 201,
+    message: 'Car has been created successfully',
     newCar,
   });
 };
@@ -55,39 +56,38 @@ const getAllCars = (req, res) => {
   });
 };
 
-// const carStatus = (req, res) => {
-//   const { status } = req.query;
-//   const filtered = data.filter(car => car.status === 'blue');
-//   if ()
-//   if (filtered.length > 0) {
-//     return res.status(200).send({
-//       success: 'true',
-//       message: "Status of the car has been retrieved successfully",
-//       filtered,
-//     });
-//   }
-//   return res.status(400).send({
-//     success: 'false',
-//   });
-// };
+const carStatus = (req, res) => {
+  const { status } = req.query;
+  const filtered = data.filter(car => car.status === 'blue');
+  if (filtered.length > 0) {
+    return res.status(200).send({
+      success: 'true',
+      message: "Status of the car has been retrieved successfully",
+      filtered,
+    });
+  }
+  return res.status(400).send({
+    success: 'false',
+  });
+};
 
-// const priceRange = (req, res) => {
-//   const { status, min_price, max_price } = req.query;
-//   const filtered = data.filter(cars => cars.status === status);
-//   if (filtered.length > 0) {
-//     const filteredCars = filtered.filter(
-//       cars => cars.price >= min_price && cars.price <= max_price,
-//     );
-//     return res.status(200).send({
-//       success: 'true',
-//       message: 'The price of the car has been retrieved successfully',
-//       filteredCars,
-//     });
-//   }
-//   return res.status(400).send({
-//     success: 'false',
-//   });
-// };
+const priceRange = (req, res) => {
+  const { status, min_price, max_price } = req.query;
+  const filtered = data.filter(cars => cars.status === status);
+  if (filtered.length > 0) {
+    const filteredCars = filtered.filter(
+      cars => cars.price >= min_price && cars.price <= max_price,
+    );
+    return res.status(200).send({
+      success: 'true',
+      message: 'The price of the car has been retrieved successfully',
+      filteredCars,
+    });
+  }
+  return res.status(400).send({
+    success: 'false',
+  });
+};
 
 const deleteCar = (req, res) => {
   const id = parseInt(req.params.id, 10);
