@@ -8,7 +8,7 @@ const orderModel = [
     "created_on": "21-30-2019",
     "status": "pending",
     "price": 4500000,
-    // "price_offered": 3000000,
+    "price_offered": 3400000,
     "old_offer": 35000000,
     "current_offer": 35000000,
   },
@@ -19,8 +19,9 @@ const orderModel = [
     "created_on": "21-30-2019",
     "status": "approved",
     "price": 15000000,
-    "price_offered": 14500000,
-  },
+    "price_offered": 3400000,
+    "old_offer": 35000000,
+    "current_offer": 35000000,  },
   {
     "id": 3,
     "buyer": 15,
@@ -28,7 +29,9 @@ const orderModel = [
     "created_on": "21-30-2019",
     "status": "pending",
     "price": 15000000,
-    "price_offered": 1600000,
+    "price_offered": 3400000,
+    "old_offer": 35000000,
+    "current_offer": 35000000,  
   },
   {
     "id": 4,
@@ -37,7 +40,9 @@ const orderModel = [
     "created_on": "21-30-2019",
     "status": "approved",
     "price": 15000000,
-    "price_offered": 900500000,
+    "price_offered": 3400000,
+    "old_offer": 35000000,
+    "current_offer": 35000000,  
   },
   {
     "id": 5,
@@ -46,8 +51,10 @@ const orderModel = [
     "created_on": "21-30-2019",
     "status": "pending",
     "price": 15000000,
-    "price_offered": 14500000,
+    "price_offered": 3400000,
+    "old_offer": 35000000,
+    "current_offer": 35000000,  
   },
 ];
 
-module.exports = orderModel;
+export default orderModel;

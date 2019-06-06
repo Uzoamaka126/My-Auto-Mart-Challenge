@@ -4,7 +4,7 @@
 
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import app from '../server';
+import server from '../server';
 
 chai.use(chaiHttp);
 const { expect } = chai;
@@ -20,30 +20,35 @@ const orderDetails = {
 };
 
 const updatedOrder = {
-  id: 201,
-  car_id: 100,
-  status: 'Pending',
-  old_price_offered: 40000000,
-  new_price_offered: 380000000,
+  price_offered: 3500000,
+};
+
+const userDetails = {
+  id: 1,
+  email: "amaka@gmail.com",
+  first_name: "Uzoamaka",
+  last_name: "Anyanwu",
+  password: "admin",
+  address: "12, Gbagada Phase 1",
 };
 
 describe('Create an order', () => {
   it('/api/v1/order should return a 201 status code and create an order', (done) => {
-    chai.request(app)
+    chai.request(server)
       .post('/api/v1/order')
       .set('accept', 'application/json')
       .send(orderDetails)
       .end((err, res) => {
         if (err) return done(err);
-        expect(res.status).to.eql(201);
+        expect(res.status).to.equal(201);
         expect(res.body.message).to.eql('Your order has been created successfully');
         done();
       });
   });
 
   it('/api/v1/order/:id should return a status code and retrieve a specific order', (done) => {
-    const id = 209;
-    chai.request(app)
+    const id = 1;
+    chai.request(server)
       .get(`/api/v1/order/${id}`)
       .set('Accept', 'application/json')
       .end((err, res) => {
@@ -55,7 +60,7 @@ describe('Create an order', () => {
   });
 
   it('/api/v1/order/:id should respond with status code 201 and update the order', (done) => {
-    chai.request(app)
+    chai.request(server)
       .patch(`/api/v1/order/1`)
       .set('Accept', 'application/json')
       .send(updatedOrder)
@@ -68,8 +73,8 @@ describe('Create an order', () => {
   });
 
   it('/api/v1/order/:id/price should respond with status code 404 and and show order not found', (done) => {
-    const id = 201;
-    chai.request(app)
+    const id = 2;
+    chai.request(server)
       .patch(`/api/v1/order/${id}/price`)
       .send({
         new_price_offered: 50000000,

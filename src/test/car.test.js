@@ -25,7 +25,9 @@ describe('CAR ENDPOINTS', () => {
       .set('accept', 'application/json')
       .send(carDetails)
       .end((err, res) => {
-        expect(res.status).to.eql(201);
+        if (err) return done(err);
+        expect(res.status).to.equal(201);
+        expect(res.body.message).to.eql('Car has been created successfully');
         done();
       });
   });
@@ -35,19 +37,31 @@ describe('CAR ENDPOINTS', () => {
       .get('/api/v1/car/1')
       .set('accept', 'application/json')
       .end((err, res) => {
-        expect(res.status).to.eql(200);
+        if (err) return done(err);
+        expect(res.status).to.equal(200);
         done();
       });
   });
 
-  it('/api/v1/car?status=available should respond with status code 200 and get a single car', (done) => {    // const status = available;
+  it('should return a 200 status code and get all cars', (done) => {
+    chai.request(app)
+      .get('/api/v1/car')
+      .set('accept', 'application/json')
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(res.status).to.equal(200);
+        done();
+      });
+  });
+
+  it('/api/v1/car?status=available should respond with status code 200 and get the status of all the cars', (done) => {    // const status = available;
     chai.request(app)
       .get('/api/v1/car/?status=available')
       .set('Accept', 'application/json')
       // eslint-disable-next-line consistent-return
       .end((err, res) => {
         if (err) return done(err);
-        expect(res.status).to.eql(200);
+        expect(res.status).to.equal(200);
         expect(res.body.message).to.eql('Cars successfully retreived');
         done();
       });

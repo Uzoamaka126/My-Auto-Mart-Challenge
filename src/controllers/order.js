@@ -44,15 +44,6 @@ const updateOrder = (req, res) => {
 
   foundOrder.old_offer = foundOrder.current_offer;
   foundOrder.current_offer = req.body.price_offered;
-  
-  // const updatedOrder = {
-  //   id: findOrder.id,
-  //   car_id: findOrder.car_id,
-  //   status: findOrder.status,
-  //   old_price_offered: findOrder.price_offered,
-  //   new_price_offered: req.body.price_offered || findOrder.price_offered,
-  // };
-  // orderData.splice(orderIndex, 1, updatedOrder);
 
   return res.status(201).send({
     success: 'true',
