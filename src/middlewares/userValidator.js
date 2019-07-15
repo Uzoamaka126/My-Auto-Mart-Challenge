@@ -1,6 +1,8 @@
 const nameregex = /^(([^<>()\[\]\\.,;:\s"]+(\.[^<>()\[\]\\.,;:\s"]+)*)|(".+"))((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const emailregex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 const passwordregex = /^[a-zA-Z]\w{3,14}$/;
+import userData from '../models/usersData';
+
 
 const signInValidator = (req, res, next) => {
     try {
@@ -37,7 +39,36 @@ const signUpValidator = (req, res, next) => {
         });
     }
 };
-
+ 
+const adminValidator = (req, res, next) => {
+    try {
+        const { authorization } = req.headers;
+        const token = authorization.split('Bearer')[1].trim();
+        userData.getSingleUserByToken(token).then((result) => {
+            const user = result.rows;
+            if (user.length > 0) {
+                if (user[0].is_admin === true) {
+                    next();
+                } else {
+                    res.status(409).json({
+                        status: 409,
+                        message: 'User not an admin',    
+                    });
+                }
+            } else {
+                res.status(400).json({
+                    status: 400,
+                    message: 'Invalid token',
+                });
+            }
+        });
+    } catch {
+        res.status(400).json({
+            status: 400,
+            message: 'invalid token',
+        });
+    }
+}
 const userValidator = {
     signInValidator,
     signUpValidator,

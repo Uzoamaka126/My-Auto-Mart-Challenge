@@ -8,7 +8,7 @@ import userValidator from '../middlewares/userValidator';
 
 const router = express.Router();
 
-const { createCar, getCar, getAllCars, deleteCar, updateCarStatus } = Cars;
+const { createCar, carStatus, getCar, getAllCars, deleteCar, updateCarStatus } = Cars;
 const { createOrder, getOrder, updateOrder } = Orders;
 const { createUsers } = Users;
 
@@ -22,14 +22,16 @@ const { signUpValidator } = userValidator;
 
 router.post('/car', postValidator, createCar);
 router.get('/car/:id', getCar);
-router.post('/auth/signup', signUpValidator, createUsers);
-router.post('/auth/signin', signInValidator, Users.signIn);
-// router.get('/car/status', carStatus);
+router.post('/auth/signup', Users.createUsers);
+router.post('/auth/signin',Users.userLogin);
+router.get('/auth/users', carStatus);
+
+router.get('/car/?status=available', carStatus);
 router.get('/car', getAllCars);
 router.get('/order/:id', getOrder);
 router.delete('/car/:id', deleteCar);
-router.patch('/car/:id', statusValidator, updateCarStatus);
+router.patch('/car/:id', updateCarStatus);
 router.post('/order', createOrderValidator, createOrder);
-router.patch('/order/:id', updateOrderValidator, updateOrder);
+router.patch('/order/:id', updateOrder);
 
 export default router;

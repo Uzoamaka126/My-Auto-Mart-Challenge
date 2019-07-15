@@ -2,83 +2,85 @@
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import UserData from '../models/usersData';
+import bcrypt from 'bcrypt';
 
 dotenv.config();
 
+const secret_key = process.env.JWT_SECRET;
+
 const createUsers = (req, res) => {
-  const newUser = {
-    id: 23,
-    email: req.body.email,
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
-    password: req.body.password,
-    confirm_password: req.body.confirm_password,
-    address: req.body.address,
-    is_admin: 'false',
-  };
+    const { first_name, last_name, email, password, addresss } = req.body;
+    const passwordHash = bcrypt.hashSync(password, 10);
+    const userInfo = { first_name, last_name, email, password: passwordHash, addresss };
+    try {
+      UserData.newUser(userInfo).then((values) => {
+        const token = jwt.sign(userInfo, secret_key);
+        const result = values.rows;
+        console.log(result)
 
-  const userDetails = {
-    id: 23,
-    email: req.body.email,
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
-    password: req.body.password,
-    confirm_password: req.body.confirm_password,
-    address: req.body.address,
-    token: 'sdfreyeejfjklg'
-  };
-
-  const token = jwt.sign(userDetails, process.env.secret_key);
-  newUser.token = token;
-  UserData.push(newUser);
-  return res.status(201).json({
-    status: 201,
-    message: 'User has been successfully created',
-    newUser,
-  });
-};
-
-const signIn = (req, res) => {
-  const userInfo = req.body;
-  const verifiedUser = UserData.find(
-    databaseUser => databaseUser.email === userInfo.email,
-  );
-  if (!verifiedUser) {
-    res.status(404).json({
-      status: 'error',
-      message: 'User Not Found',
-    });
-  } else {
-    if (verifiedUser.password === userInfo.password) {
-      const payload = {
-        id: userInfo.id,
-        email: userInfo.email,
-        isAdmin: userInfo.isAdmin,
-      };
-      jwt.sign(payload, process.env.secret_key, (err, token) => {
-        if (err) {
-          throw err;
-        } else {
-          res.status(201).json({
-            status: 'success',
-            token: `Bearer ${token}`,
-            message: 'User has logged in successfully',
+        if (result.length > 0) {
+          const { id } = result[0];
+          UserData.storeSingleUserToken(id, token)
+          .then((resultBody) => {
+            console.log(resultBody)
+            const resultValue = resultBody.rows;
+            res.status(201).json({
+              status: 'Successful',
+              message: `Hey!, ${first_name}`,
+              data: {
+                data: resultValue,
+              }
+            });
           });
         }
       });
-    } else {
-      return res.status(400).json({
-        status: 400,
-          status: 'error',
-          message: 'Password Incorrect',
-        });
+    } catch(error) {
+      return res.status(500).json({
+        status: 'False',
+        message: 'Unable to create Users'
+      });
     }
-    return false;
-  }
 };
 
-const UserController = {
-  createUsers,
-  signIn,
-};
-export default UserController;
+const userLogin = (req, res) => {
+  const userInfo = req.body;
+  UserData.get(userInfo.email).then((results) => {
+    const oldUserDetails = results.rows;
+    if (oldUserDetails.length < 1) {
+      res.status(404).json({
+        status: 'error',
+        message: 'User Not Found',
+      });
+    } else {
+      bcrypt.compare(userInfo.password, oldUserDetails[0].password, (error, result) => {
+        if (error) {
+          return res
+            .status(400)
+            .json({
+              status: 'error',
+              message: 'Password Incorrect',
+            });
+        }
+        if (result) {
+          jwt.sign(oldUserDetails[0], process.env.JWT_SECRET, (err, token) => {
+            if (err) {
+              throw err;
+            } else {
+              res.status(201).json({
+                status: 'success',
+                token: `Bearer ${token}`,
+                message: 'Login Succesful',
+              });
+            }
+          });
+        }
+      });
+    }
+  });
+}
+  const UserController = {
+    createUsers,
+    userLogin
+  };
+
+  export default UserController;

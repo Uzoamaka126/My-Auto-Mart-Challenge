@@ -4,8 +4,7 @@
 import orderData from '../models/orderData';
 
 const createOrder = (req, res) => {
-  const newOrder = {
-    id: 200,
+  const new_order = {
     buyer: req.body.buyer,
     car_id: req.body.car_id,
     created_on: req.body.created_on,
@@ -14,37 +13,45 @@ const createOrder = (req, res) => {
     price_offered: req.body.price_offered,
   };
 
-  orderData.push(newOrder);
+  orderData.createNewOrder(new_order);
   return res.status(201).json({
     status: 201,
     message: 'Your order has been created successfully',
-    newOrder,
+    data: new_order,
   });
 };
 
 const getOrder = (req, res) => {
   const id = parseInt(req.params.id, 10);
-  const requestedOrder = orderData.find(order => order.id === id);
-  return res.status(200).send({
-    success: 'true',
-    message: 'The order has been successfully retrieved',
-    requestedOrder,
-  });
+  orderData.getSingleOrder(id).then((value) => {
+    const result = value.rows;
+    return res.status(200).send({
+      success: 'true',
+      message: 'The order has been successfully retrieved',
+      result,
+    });
+  })
 };
 
 const updateOrder = (req, res) => {
   const id = parseInt(req.params.id, 10);
-  const foundOrder = orderData.find(order => order.id === id);
-  if(!foundOrder){
-    return res.status(404).send({
-      success: 'false',
-      message: 'This order does not exist',
-    });
-  }
 
-  foundOrder.old_offer = foundOrder.current_offer;
-  foundOrder.current_offer = req.body.price_offered;
-
+  const { price_offered } = req.body;
+  orderData.getSingleOrder(id).then((result) => {
+    const order = result.rows;
+    if (order.length > 0) {
+      const oldPrice = (order[0].new_price_offered === null ? order[0].price_offered : order[0].new_price_offered);      console.log(oldPrice);
+      orderData.updateSingleOrder(id, oldPrice, price_offered).then(() => {
+        const value = results.rows;
+        return res.status(201).send({
+          success: 'true',
+          message: 'The order has been successfully updated',
+          data: value,
+        })
+      })
+    }
+  })
+ 
   return res.status(201).send({
     success: 'true',
     message: 'The order has been updated successfully',

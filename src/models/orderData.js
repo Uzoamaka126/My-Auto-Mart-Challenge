@@ -1,60 +1,40 @@
 /* eslint-disable quote-props */
 /* eslint-disable quotes */
-const orderModel = [
-  {
-    "id": 1,
-    "buyer": "Uzoamaka Anyanwu",
-    "car_id": 28,
-    "created_on": "21-30-2019",
-    "status": "pending",
-    "price": 4500000,
-    "price_offered": 3400000,
-    "old_offer": 35000000,
-    "current_offer": 35000000,
-  },
-  {
-    "id": 2,
-    "buyer": 30,
-    "car_id": 5,
-    "created_on": "21-30-2019",
-    "status": "approved",
-    "price": 15000000,
-    "price_offered": 3400000,
-    "old_offer": 35000000,
-    "current_offer": 35000000,  },
-  {
-    "id": 3,
-    "buyer": 15,
-    "car_id": 45,
-    "created_on": "21-30-2019",
-    "status": "pending",
-    "price": 15000000,
-    "price_offered": 3400000,
-    "old_offer": 35000000,
-    "current_offer": 35000000,  
-  },
-  {
-    "id": 4,
-    "buyer": 90,
-    "car_id": 5,
-    "created_on": "21-30-2019",
-    "status": "approved",
-    "price": 15000000,
-    "price_offered": 3400000,
-    "old_offer": 35000000,
-    "current_offer": 35000000,  
-  },
-  {
-    "id": 5,
-    "buyer": 60,
-    "car_id": 5,
-    "created_on": "21-30-2019",
-    "status": "pending",
-    "price": 15000000,
-    "price_offered": 3400000,
-    "old_offer": 35000000,
-    "current_offer": 35000000,  
-  },
-];
+import moment from 'moment';
+import pool from '../database/connections';
 
-export default orderModel;
+class Orders {
+  static createNewOrder(order) {
+    const orderInfo = {
+      buyer: order.buyer,
+      car_id: order.car_id,
+      created_on: moment.format(),
+      status: order.status,
+      price_offered: order.price_offered,
+    };
+    // const createdOn = moment.format();
+    return new Promise((resolve, reject) => {
+      pool.query(`INSERT INTO orders ( buyer, car_id, created_on, status, price_offered) VALUES ('${order.buyer}', '${order.car_id}', '${order.createdOn}', '${order.status}', '${order.price_offered}') returning *`)
+        .then(results => resolve(results))
+        .catch(error => reject(error));
+    });
+  }
+
+  static getSingleOrder(id) {
+    return new Promise((resolve, reject) => {
+      pool.query(`SELECT * FROM orders where id = '${id}'`)
+        .then(response => resolve(response))
+        .catch(error => reject(error));
+    });
+  }
+
+  static updateSingleOrder(id, old_price, new_price) {
+    return new Promise((resolve, reject) => {
+      pool.query(`UPDATE orders SET old_price_offered = '${old_price}', new_price_offered = '${new_price}' WHERE id = '${id}' returning *`)
+        .then(response => resolve(response))
+        .catch(error => reject(error));
+    });
+  }
+}
+
+export default Orders;
