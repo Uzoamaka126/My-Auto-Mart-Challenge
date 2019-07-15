@@ -1,12 +1,13 @@
 const statusValidator = (req, res, next) => {
 
-  if (req.body.status.toLowerCase() !== 'sold' || req.body.status.toLowerCase() !== 'available') {
-    return res.status(400).json({
-      error: true,
-      message: 'Status should be sold or available',
-    });
-  }
-  return next();
+  if (req.params.status === 'Sold' || req.params.status === 'Available') {
+    return next();
+  } 
+  return res.status(400).json({
+    error: true,
+    message: 'Status should be sold or available',
+  });
+  
 };
 
 const postValidator = (req, res, next) => {

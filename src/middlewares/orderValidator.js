@@ -13,7 +13,7 @@ const createOrderValidator = (req, res, next) => {
 
 const updateOrderValidator = (req, res, next) => {
   
-  if (req.body.price_offered) {
+  if (req.body.price && req.body.status) {
     return next();
   } else {
     return res.status(406).json({
